@@ -25,13 +25,13 @@ Vagrant.configure("2") do |config|
   end
 
 
-  # config.vm.provision "ansible_local" do |ansible|
-  #   ansible.playbook = "playbooks/infrastructure.yml"
-  #   ansible.extra_vars = {
-  #     git_repository: "https://github.com/visse0001/Infrastructure",
-  #     git_branch: "jenkins_agent"
-  #   }
-  # end
+  config.vm.provision "ansible_local" do |ansible|
+    ansible.playbook = "playbooks/infrastructure.yml"
+    ansible.extra_vars = {
+      git_repository: "https://github.com/visse0001/Infrastructure",
+      git_branch: "jenkins_agent"
+    }
+  end
 
   if VAGRANT_COMMAND == "ssh"
     config.ssh.username = 'panda'
